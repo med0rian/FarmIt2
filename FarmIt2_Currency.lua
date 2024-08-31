@@ -307,9 +307,11 @@ end
 function FI_Hook_Currency( tooltip )
   if (FI_SVPC_CONFIG.Currency.tracking == true) and tooltip:GetOwner() then
     local owner = tooltip:GetOwner();
+    local cid; --to prevent nil?
+
     -- Sometimes cid can be nil? BugSack show Error
 	  if cid == nil then 
-      if FI_SV_CONFIG.debug then print("BackpackTokenFrame Error!"); end
+      if FI_SV_CONFIG.debug then print("The cid("..cid..") is ~nil - BackpackTokenFrame cause this?"); end
       else
         cid = tonumber(strsub(owner:GetName(), -1));
         -- show objective if set
